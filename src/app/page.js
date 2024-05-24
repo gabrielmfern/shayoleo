@@ -93,7 +93,7 @@ export default function Home() {
 
     humburgerMenuContainer.current.classList.toggle("active");
 
-    humburgerBtn.innerHTML = `<i class="fa fa-bars menu-icon" aria-hidden="true"></i>`;
+    humburgerBtn.innerHTML = `<i className="fa fa-bars menu-icon" aria-hidden="true"></i>`;
 
     const id = linkClicked.getAttribute("href");
 
@@ -108,13 +108,13 @@ export default function Home() {
 
   async function handleSendingEmail(formData) {
     try {
-      // const res = await emailjs.sendForm(
-      //   "service_d3v14ap",
-      //   "template_lb6ols3",
-      //   form.current,
-      //   "mUAx85XrZTBdf3zqo"
-      // );
-      // await sendEmail(formData);
+      const res = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      console.log(`❤❤❤`);
+      console.log(await res.json());
     } catch (error) {
       console.log(error);
     }
@@ -122,98 +122,98 @@ export default function Home() {
 
   return (
     <div>
-      <section ref={heroSection} class="hero justify-items-stretch">
-        {/* <div class="background_hero"></div> */}
-        <div class="wrapper">
-          <header ref={header} class="header">
-            <h2 class="visually-hidden">Header</h2>
-            <div class="header-wraper">
-              <h2 class="visually-hidden">Navigation</h2>
-              <div class="profile-image-container">
+      <section ref={heroSection} className="hero justify-items-stretch">
+        {/* <div className="background_hero"></div> */}
+        <div className="wrapper">
+          <header ref={header} className="header">
+            <h2 className="visually-hidden">Header</h2>
+            <div className="header-wraper">
+              <h2 className="visually-hidden">Navigation</h2>
+              <div className="profile-image-container">
                 <Image
                   width={1000000}
                   height={100000}
-                  class="profile-image"
+                  className="profile-image"
                   src="/images/leonard-image.png"
                   alt=""
                 />
               </div>
-              <nav onClick={handleScrollToSections} class="header__nav">
-                <a href="#skills" class="nav-link skills-link">
+              <nav onClick={handleScrollToSections} className="header__nav">
+                <a href="#skills" className="nav-link skills-link">
                   {" "}
                   skills{" "}
                 </a>
 
-                <a href="#projects" class="nav-link project-link">
+                <a href="#projects" className="nav-link project-link">
                   {" "}
                   Projects{" "}
                 </a>
-                <a href="#socials" class="nav-link social-link">
+                <a href="#socials" className="nav-link social-link">
                   {" "}
                   Socials{" "}
                 </a>
-                <a href="#contact" class="nav-link hero__contact underline">
+                <a href="#contact" className="nav-link hero__contact underline">
                   Contact me
                 </a>
               </nav>
               <nav
                 ref={humburgerBtn}
                 onClick={handleDisplayingHumburgerMenu}
-                class="menu h-12 w-12 cursor-pointer "
+                className="menu h-12 w-12 cursor-pointer "
               >
                 {isHamburgerActive ? (
-                  <FaTimes class="menu-icon" />
+                  <FaTimes className="menu-icon" />
                 ) : (
-                  <IoMdMenu class="menu-icon" />
+                  <IoMdMenu className="menu-icon" />
                 )}
               </nav>
             </div>
             <div
               onClick={handleHumburgerLinkClicked}
               ref={humburgerMenuContainer}
-              class="hamburger-menu-container"
+              className="hamburger-menu-container"
             >
-              <nav class="hamburger-menu_links">
+              <nav className="hamburger-menu_links">
                 <a
                   href="#skills"
-                  class="hamburger-menu_link nav-link skills-link"
+                  className="hamburger-menu_link nav-link skills-link"
                 >
                   skills
                 </a>
 
                 <a
                   href="#projects"
-                  class="hamburger-menu_link nav-link project-link"
+                  className="hamburger-menu_link nav-link project-link"
                 >
                   Projects
                 </a>
                 <a
                   href="#socials"
-                  class="hamburger-menu_link nav-link social-link"
+                  className="hamburger-menu_link nav-link social-link"
                 >
                   Socials
                 </a>
                 <a
                   href="#contact"
-                  class="hamburger-menu_link nav-link hero__contact underline"
+                  className="hamburger-menu_link nav-link hero__contact underline"
                 >
                   Contact me
                 </a>
               </nav>
             </div>
           </header>
-          <div class="hero__wrapper flex-col  items-center justify-center">
-            <div class="hero__text flex text-center gap-y-8 flex-col w-full  items-center justify-center">
-              <h1 class="hero__headline header-xl max-w-[775px]">
+          <div className="hero__wrapper flex-col  items-center justify-center">
+            <div className="hero__text flex text-center gap-y-8 flex-col w-full  items-center justify-center">
+              <h1 className="hero__headline header-xl max-w-[775px]">
                 Transforming concepts into seemless user experience.
               </h1>
 
-              <p class="hero__description">
+              <p className="hero__description">
                 Hi! i'm Leonard, Next.js Developer based in Tanzania
               </p>
               <a
                 onClick={handleScrollToProjects}
-                class="hero__contact contactbtn underline"
+                className="hero__contact contactbtn underline"
               >
                 See my works
               </a>
@@ -225,14 +225,14 @@ export default function Home() {
       <main id="main">
         <section
           id="skills"
-          class="section p-8 skills grid gap-x-8 gap-y-12  sm:grid-cols-2 "
+          className="section px-8 pt-12 skills grid gap-x-8 gap-y-12  sm:grid-cols-2 "
         >
           <div className="relative rounded-sm overflow-hidden  min-h-80  ">
             <Image
               layout="fill"
               objectFit="cover"
               objectPosition="top"
-              class=""
+              className=""
               src="/images/pankaj-patel-u2Ru4QBXA5Q-unsplash.jpg"
               alt="screenshot of design portfolio website"
             />
@@ -268,70 +268,74 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={projectsSection} id="projects" class="projects">
-          <div class="wrapper projects__wrapper">
-            <div class="projects__grid">
-              <h2 class="projects__headline header-xl">Projects</h2>
+        <section ref={projectsSection} id="projects" className="projects">
+          <div className="wrapper projects__wrapper">
+            <div className="projects__grid">
+              <h2 className="projects__headline header-xl">Projects</h2>
               <div></div>
 
-              <div class="section projects__item grid w-full gap-y-4">
+              <div className="section projects__item grid w-full gap-y-4">
                 <div className="w-full relative rounded-sm overflow-hidden  min-h-80  ">
                   <Image
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
-                    class="w-full"
+                    className="w-full"
                     src="/images/poshdesign.PNG"
                     alt="screenshot of design portfolio website"
                   />
                 </div>
 
                 <div className="grid gap-4  grid-cols-1 justify-items-center">
-                  <h3 class="font-bold text-2xl uppercase text-center">
+                  <h3 className="font-bold text-2xl uppercase text-center">
                     PoshDesigns Webiste
                   </h3>
                   <div className="flex gap-4">
                     <a
                       href="https://posh-designs.vercel.app/"
                       target="blank"
-                      class=""
+                      className=""
                     >
                       <FiExternalLink />{" "}
                     </a>
                     <a
                       href="https://github.com/leonard-shayo/poshDesigns"
                       target="blank"
-                      class=""
+                      className=""
                     >
                       <FaGithub />
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="section projects__item grid w-full gap-y-4">
+              <div className="section projects__item grid w-full gap-y-4">
                 <div className="w-full relative rounded-sm overflow-hidden  min-h-80  ">
                   <Image
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
-                    class="w-full"
+                    className="w-full"
                     src="/images/manamba.PNG"
                     alt="screenshot of design portfolio website"
                   />
                 </div>
 
                 <div className="grid gap-4  grid-cols-1 justify-items-center">
-                  <h3 class="font-bold text-2xl uppercase text-center">
+                  <h3 className="font-bold text-2xl uppercase text-center">
                     manamba App
                   </h3>
                   <div className="flex gap-4">
-                    <a href="https://manamba.co.tz/" target="blank" class="">
+                    <a
+                      href="https://manamba.co.tz/"
+                      target="blank"
+                      className=""
+                    >
                       <FiExternalLink />{" "}
                     </a>
                     {/* <a
                       href="https://posh-designs.vercel.app/"
                       target="blank"
-                      class=""
+                      className=""
                     >
                       <FaReact />
                     </a> */}
@@ -342,11 +346,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" class="section contact bg-less-dark">
-          <div class="wrapper contact__wrapper bottom-border">
-            <div class="contact__text">
-              <h2 class="contact__headline header-xl">Contact</h2>
-              <p class="contact__description">
+        <section id="contact" className="section contact bg-less-dark">
+          <div className="wrapper contact__wrapper bottom-border">
+            <div className="contact__text">
+              <h2 className="contact__headline header-xl">Contact</h2>
+              <p className="contact__description">
                 I would love to hear about your project and how I could help.
                 Please fill in the form, and I'll get back to you as soon as
                 possible.
@@ -355,11 +359,11 @@ export default function Home() {
             <form
               onSubmit={handleSubmit(handleSendingEmail)}
               method="POST"
-              class="contact__form"
+              className="contact__form"
               ref={form}
             >
-              <div class="contact__control">
-                <label for="name" class="visually-hidden">
+              <div className="contact__control">
+                <label for="name" className="visually-hidden">
                   Name
                 </label>
                 <input
@@ -378,13 +382,13 @@ export default function Home() {
                 <Image
                   src="images/icon-invalid.svg"
                   alt=""
-                  class="contact__invalid-icon"
+                  className="contact__invalid-icon"
                   width={1000000}
                   height={100000}
                 />
               </div>
-              <div class="contact__control">
-                <label for="email" class="visually-hidden">
+              <div className="contact__control">
+                <label for="email" className="visually-hidden">
                   Email
                 </label>
                 <input
@@ -408,13 +412,13 @@ export default function Home() {
                 <Image
                   src="images/icon-invalid.svg"
                   alt=""
-                  class="contact__invalid-icon"
+                  className="contact__invalid-icon"
                   width={1000000}
                   height={100000}
                 />
               </div>
-              <div class="contact__control">
-                <label for="message" class="visually-hidden">
+              <div className="contact__control">
+                <label for="message" className="visually-hidden">
                   Message
                 </label>
                 <textarea
@@ -435,15 +439,15 @@ export default function Home() {
                 <Image
                   src="images/icon-invalid.svg"
                   alt=""
-                  class="contact__invalid-icon"
+                  className="contact__invalid-icon"
                   width={1000000}
                   height={100000}
                 />
               </div>
-              <div class="contact__control align-right">
+              <div className="contact__control align-right">
                 <button
                   disabled={!isValid || isSubmitting || !isDirty}
-                  class="emaiSubmitBtn"
+                  className="emaiSubmitBtn"
                   type="submit"
                 >
                   {isSubmitting ? `Sending...` : `Send Message`}
@@ -454,16 +458,16 @@ export default function Home() {
         </section>
       </main>
 
-      <footer id="socials" class=" w-full bg-less-dark ">
-        <h2 class="visually-hidden">Footer</h2>
-        <div class="footer__nav-wrapper wrapper w-full grid grid-cols-1 gap-8 justify-items-center">
-          <nav class="footer__nav gap-8">
-            <h2 class="visually-hidden">Navigation</h2>
+      <footer id="socials" className=" w-full bg-less-dark ">
+        <h2 className="visually-hidden">Footer</h2>
+        <div className="footer__nav-wrapper wrapper w-full grid grid-cols-1 gap-8 justify-items-center">
+          <nav className="footer__nav gap-8">
+            <h2 className="visually-hidden">Navigation</h2>
 
             <a
               target="blank"
               href="https://github.com/leonard-shayo"
-              class="header__social"
+              className="header__social"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -484,7 +488,7 @@ export default function Home() {
             <a
               target="blank"
               href="https://twitter.com/shayoleo"
-              class="header__social"
+              className="header__social"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -507,7 +511,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <div class="message visually-hidden"></div>
+      <div className="message visually-hidden"></div>
     </div>
   );
 }
