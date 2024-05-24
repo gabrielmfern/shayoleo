@@ -113,8 +113,7 @@ export default function Home() {
       //   form.current,
       //   "mUAx85XrZTBdf3zqo"
       // );
-
-      await sendEmail(formData);
+      // await sendEmail(formData);
     } catch (error) {
       console.log(error);
     }
