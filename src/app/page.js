@@ -19,6 +19,7 @@ import emailjs from "@emailjs/browser";
 import { FiExternalLink } from "react-icons/fi";
 
 import { sendEmail } from "@/lib/actions";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
@@ -108,15 +109,15 @@ export default function Home() {
 
   async function handleSendingEmail(formData) {
     try {
-      const res = await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
-
+      // const res = await fetch("/api/email", {
+      //   method: "POST",
+      //   body: JSON.stringify(formData),
+      // });
       console.log(`❤❤❤`);
-      console.log(await res.json());
+      toast.success("Email Sent Successfully!");
     } catch (error) {
       console.log(error);
+      toast.success(error.message);
     }
   }
 
