@@ -109,11 +109,10 @@ export default function Home() {
 
   async function handleSendingEmail(formData) {
     try {
-      // const res = await fetch("/api/email", {
-      //   method: "POST",
-      //   body: JSON.stringify(formData),
-      // });
-      console.log(`❤❤❤`);
+      const res = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
       toast.success("Email Sent Successfully!");
     } catch (error) {
       console.log(error);
