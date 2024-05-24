@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -11,6 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* <script src="https://cdn.emailjs.com/dist/email.min.js"></script> */}
+
+        {/* <script defer src="/src/lib/script.js"></script> */}
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
