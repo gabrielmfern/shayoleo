@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev --dir src/emails"
+    "email": "email dev --dir src/email"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",

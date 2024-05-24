@@ -1,3 +1,4 @@
+import Email from "@/email";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -8,12 +9,15 @@ export async function POST(request) {
     const { name, email, message } = await request.json();
 
     const res = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "Contact Form <onboarding@resend.dev>",
       to: "leoshayo11@gmail.com",
+      reply_to: email,
       subject: "Message from contact form",
-      html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+      // html: <p> {`${name} , ${message}`}</p>,
+      react: <Email name={name} message={message}></Email>,
     });
 
+    console.log(`❤❤`);
     console.log(res);
 
     return NextResponse.json({ status: "ok" });

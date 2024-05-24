@@ -204,7 +204,7 @@ export default function Home() {
           </header>
           <div className="hero__wrapper flex-col  items-center justify-center">
             <div className="hero__text flex text-center gap-y-8 flex-col w-full  items-center justify-center">
-              <h1 className="hero__headline header-xl max-w-[775px]">
+              <h1 className="hero__headline font-bold header-xl max-w-[775px]">
                 Transforming concepts into seemless user experience.
               </h1>
 
