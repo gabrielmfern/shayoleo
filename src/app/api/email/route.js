@@ -17,9 +17,6 @@ export async function POST(request) {
       react: <Email name={name} message={message}></Email>,
     });
 
-    console.log(`❤❤`);
-    console.log(res);
-
     return NextResponse.json({ status: "ok" });
   } catch (error) {
     return NextResponse.json({ status: "error", message: error.message });

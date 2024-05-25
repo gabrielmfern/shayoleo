@@ -212,6 +212,7 @@ export default function Home() {
                 Hi! i'm Leonard, Next.js Developer based in Tanzania
               </p>
               <a
+                href=""
                 onClick={handleScrollToProjects}
                 className="hero__contact contactbtn underline"
               >
@@ -295,6 +296,7 @@ export default function Home() {
                       href="https://posh-designs.vercel.app/"
                       target="blank"
                       className=""
+                      aria-label="visit project"
                     >
                       <FiExternalLink />{" "}
                     </a>
@@ -302,6 +304,7 @@ export default function Home() {
                       href="https://github.com/leonard-shayo/poshDesigns"
                       target="blank"
                       className=""
+                      aria-label="view project source code"
                     >
                       <FaGithub />
                     </a>
@@ -329,6 +332,7 @@ export default function Home() {
                       href="https://manamba.co.tz/"
                       target="blank"
                       className=""
+                      aria-label="visit project"
                     >
                       <FiExternalLink />{" "}
                     </a>
