@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/*",
     },
-    sitemap: "https://leonardsite.vercel.app/sitemap.xml",
+    sitemap: "https://shayoleo.vercel.app/sitemap.xml",
   };
 }
